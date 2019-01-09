@@ -80,7 +80,7 @@ public class SoloBajarse extends LinearOpMode {
         waitForStart();
 
         robot.lift.setPower(-1);
-        sleep(2000);
+        sleep(2700);
         robot.lift.setPower(0);
         sleep(1000);
         robot.frontRightDrive.setPower(-0.5);
