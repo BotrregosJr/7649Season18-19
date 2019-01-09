@@ -65,7 +65,7 @@ import java.util.Locale;
  */
 @Autonomous(name = "SoloVuforia", group = "pushbot")
 //@Disabled
-public class SoloVuforia extends LinearOpMode {
+public class Solo2Minerals extends LinearOpMode {
     HardwareOmni robot           = new HardwareOmni();
     private ElapsedTime runtime = new ElapsedTime();
 
@@ -291,6 +291,79 @@ public class SoloVuforia extends LinearOpMode {
         tfod = ClassFactory.getInstance().createTFObjectDetector(tfodParameters, vuforia);
         tfod.loadModelFromAsset(TFOD_MODEL_ASSET, LABEL_GOLD_MINERAL, LABEL_SILVER_MINERAL);
 
+    }
+
+    public void Recog(int timeout) {
+        String Position = "Position";
+        long startTime = System.currentTimeMillis();
+        long currentTime = startTime;
+        while (currentTime - startTime < timeout && opModeIsActive()) {
+            telemetry.addData("time", currentTime - startTime);
+            telemetry.update();
+            if (tfod != null) {
+                List<Recognition> updatedRecognitions = tfod.getUpdatedRecognitions();
+                if (updatedRecognitions != null) {
+                    telemetry.addData("# Object Detected", updatedRecognitions.size());
+                    telemetry.update();
+                    if (updatedRecognitions.size() == 2) {
+                        int goldMineralX = -1;
+                        int silverMineral1X = -1;
+                        int silverMineral2X = -1;
+
+                        // This just records values, and is unchanged
+
+                        for (Recognition recognition : updatedRecognitions) {
+                            if (recognition.getLabel().equals(LABEL_GOLD_MINERAL)) {
+                                goldMineralX = (int) recognition.getTop();
+                            } else if (silverMineral1X == -1) {
+                                silverMineral1X = (int) recognition.getTop();
+                            } else {
+                                silverMineral2X = (int) recognition.getTop();
+                            }
+                        }
+
+                        // If there is no gold (-1) and there two silvers (not -1) the gold
+                        // is not visible, and must be on the right
+
+                        if (goldMineralX == -1 && silverMineral1X != -1 && silverMineral2X != -1) {
+                            telemetry.addData("Gold Mineral Position", "Right");
+                            Position = "RIGHT";
+                            telemetry.addData("Position", Position);
+                            telemetry.update();
+                        }
+
+                        // If you can see one gold and one silver ...
+
+                        else if (goldMineralX != -1 && silverMineral1X != -1) {
+                            // ... if the gold is to the right of the silver, the gold is in the center ...
+
+
+                            if (goldMineralX > silverMineral1X) {
+                                telemetry.addData("Gold Mineral Position", "Center");
+                                Position = "CENTER";
+                                telemetry.addData("Position", Position);
+                                telemetry.update();
+                            }
+
+                            // ... otherwise it is on the left
+
+                            else {
+                                telemetry.addData("Gold Mineral Position", "Left");
+                                Position = "LEFT";
+                                telemetry.addData("Position", Position);
+                                telemetry.update();
+                            }
+                        }
+
+                        // ... otherwise it is on the left
+
+                    }
+                }
+            }
+            telemetry.update();
+
+            currentTime = System.currentTimeMillis();
+        }
     }
 
 }
