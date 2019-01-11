@@ -132,7 +132,9 @@ public class Solo2 extends LinearOpMode {
         robot.lift.setPower(-0.8);
         sleep(2400);
         robot.lift.setPower(0);
-        encoderDrive(DRIVE_SPEED,2.5,-2.5,-2.5,2.5,5.0);// slide
+        sleep(1000);
+        encoderDrive(DRIVE_SPEED,1.5,-1.5,-1.5,1.5,5.0);// slide
+
 
         if (opModeIsActive()) {
             /** Activate Tensor Flow Object Detection. */
@@ -177,7 +179,7 @@ public class Solo2 extends LinearOpMode {
                              // sleep(2400);
                              // robot.lift.setPower(0);
                               sleep(1000);
-                              //encoderDrive(DRIVE_SPEED,2.5,-2.5,-2.5,2.5,5.0);// slide
+                              encoderDrive(DRIVE_SPEED,1,-1,-1,1,5.0);// slide
                               encoderDrive(DRIVE_SPEED,0.5,0.5,0.5,0.5,2.0); // pegarse lander
                               encoderDrive(TURN_SPEED,-7,1,-7,1,5.0); // girar izquierda
                               encoderDrive(DRIVE_SPEED,-19,-19,-19,-19,5.0);//arrasar
@@ -200,7 +202,7 @@ public class Solo2 extends LinearOpMode {
                                    // sleep(2400);
                                     //robot.lift.setPower(0);
                                     sleep(1000);
-                                    //encoderDrive(DRIVE_SPEED,2.5,-2.5,-2.5,2.5,5.0);// slide
+                                    encoderDrive(DRIVE_SPEED,1,-1,-1,1,5.0);// slide
                                     encoderDrive(DRIVE_SPEED,0.5,0.5,0.5,0.5,2.0); // pegarse lander
                                     encoderDrive(DRIVE_SPEED,-1,1,-1,1,5.0);//girar
                                     encoderDrive(DRIVE_SPEED,  -27.5,  -27.5, -27.5,-27.5,5.0); // arrasar
@@ -217,7 +219,7 @@ public class Solo2 extends LinearOpMode {
                                     //sleep(2400);
                                     //robot.lift.setPower(0);
                                    sleep(1000);
-                                  // encoderDrive(DRIVE_SPEED,2.5,-2.5,-2.5,2.5,5.0);// slide
+                                  encoderDrive(DRIVE_SPEED,1,-1,-1,1,5.0);// slide
                                     encoderDrive(DRIVE_SPEED,0.5,0.5,0.5,0.5,2.0); // pegarse lander
                                     encoderDrive(TURN_SPEED,1,-4,1,-4,5.0); // girar izquierda
                                    encoderDrive(DRIVE_SPEED,-18,-18,-18,-18,5.0);//arrasar
