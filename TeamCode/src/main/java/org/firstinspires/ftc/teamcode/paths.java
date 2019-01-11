@@ -72,9 +72,8 @@ public class paths extends LinearOpMode {
     static final double     COUNTS_PER_MOTOR_REV    = 1120 ;    // neverest 40:1
     static final double     DRIVE_GEAR_REDUCTION    = 2.0 ;     // This is < 1.0 if geared UP
     static final double     WHEEL_DIAMETER_INCHES   = 4.0 ;     // For figuring circumference
-    static final double     COUNTS_PER_INCH         = (COUNTS_PER_MOTOR_REV * DRIVE_GEAR_REDUCTION) /
-            (WHEEL_DIAMETER_INCHES * 3.1415);
-    static final double     DRIVE_SPEED             = 1.0;
+    static final double     COUNTS_PER_INCH         = (COUNTS_PER_MOTOR_REV * DRIVE_GEAR_REDUCTION) / (WHEEL_DIAMETER_INCHES * 3.1415);
+    static final double     DRIVE_SPEED             = 0.90;
     static final double     TURN_SPEED              = 0.5;
 
     @Override
@@ -121,51 +120,57 @@ public class paths extends LinearOpMode {
         // Step through each leg of the path,
         // Note: Reverse movement is obtained by setting a negative distance (not speed)
 
-
-        sleep(1500);
-        robot.lift.setPower(.5);
-        sleep(4300);
-        robot.lift.setPower(0);
-        sleep(1000);
-        encoderDrive(DRIVE_SPEED,-2.5,2.5,2.5,-2.5,5.0);// slide
-        encoderDrive(DRIVE_SPEED,0.5,0.5,0.5,0.5,5.0); // pegarse lander
-        encoderDrive(DRIVE_SPEED,  -29.5,  -29.5, -29.5,-29.5,5.0); // arrasar
-        encoderDrive(DRIVE_SPEED,4.8,-4.8,4.8,-4.8,5.0);//girar
-        robot.intake.setPower(1);
-        sleep(1000);        //disparar
-        robot.intake.setPower(0);
-        encoderDrive(DRIVE_SPEED,10,10,10,10,5.0); //puro pa delante, fierro pariente
-        encoderDrive(0.8,-2.5,2.5,2.5,-2.5,5.0);// slide
-        encoderDrive(1,30,30,30,30,5.0); //puro pa delante, fierro pariente
+       // sleep(1500);
+        //robot.lift.setPower(-0.8);
+        //sleep(2750);
+        //robot.lift.setPower(0);
+        //sleep(1000);
+        //encoderDrive(DRIVE_SPEED,2.5,-2.5,-2.5,2.5,5.0);// slide
+        //encoderDrive(DRIVE_SPEED,0.5,0.5,0.5,0.5,2.0); // pegarse lander
+        //encoderDrive(DRIVE_SPEED,-1,1,-1,1,5.0);//girar
+        //encoderDrive(DRIVE_SPEED,  -27.5,  -27.5, -27.5,-27.5,5.0); // arrasar
+       // robot.intake.setPower(-1);
+       // sleep(1000);      //disparar
+        //robot.intake.setPower(0);
+        //encoderDrive(DRIVE_SPEED,5.75,-5.75,5.75,-5.75,5.0);//girar
+        //encoderDrive(0.8,-4.5,4.5,4.5,-4.5,5.0);// slide
+        //encoderDrive(1,60,60,60,60,5.0); //puro pa delante, fierro pariente
 
 
         //izquierda
-        // encoderLift(.5, 2,5.0); //bajar de lander
-        //encoderDrive(DRIVE_SPEED,-1,1,1,-1,5.0);// slide
-        // encoderDrive(DRIVE_SPEED,1,1,0,5.0);// separase lander
-        //encoderDrive(TURN_SPEED,-1,1,0,5.0); // girar izquierda
-        // encoderDrive(DRIVE_SPEED,18,18,0,5.0);//arrasar
-        //encoderDrive(TURN_SPEED,1,-1,0,0.5);//apuntar
-        //robot.recogedor.setPower(1);
-        //sleep(1000);        //disparar
-        // robot.recogedor.setPower(0);
-        //encoderDrive(DRIVE_SPEED,-5,-5,0,5.0); // pa tras
-        //encoderDrive(TURN_SPEED,10,-10,0,5.0); //girars deresha
-        //encoderDrive(DRIVE_SPEED,20,20,0,5.0); //puro pa delante, fierro pariente
+        //robot.lift.setPower(-0.8);
+        //sleep(2400);
+        //robot.lift.setPower(0);
+        //sleep(1000);
+        //encoderDrive(DRIVE_SPEED,2.5,-2.5,-2.5,2.5,5.0);// slide
+        //encoderDrive(DRIVE_SPEED,0.5,0.5,0.5,0.5,2.0); // pegarse lander
+        //encoderDrive(TURN_SPEED,1,-4,1,-4,5.0); // girar izquierda
+        //encoderDrive(DRIVE_SPEED,-18,-18,-18,-18,5.0);//arrasar
+        //encoderDrive(DRIVE_SPEED,-7.2,7.2,-7.2,7.2,5.0);//girar
+        //encoderDrive(0.8,5.3,-5.3,-5.3,5.3,2.0);// slide
+        //encoderDrive(1,-10,-10,-10,-10,5.0); //puro pa delante, fierro pariente
+        //robot.intake.setPower(-1);
+        //sleep(1000);      //disparar
+        //robot.intake.setPower(0);
+        //encoderDrive(1,10,10,10,10,5.0); //puro pa delante, fierro pariente
+
 
         //derecha
-        //encoderLift(.5, 2,5.0); //bajar de lander
-        //encoderDrive(DRIVE_SPEED,0,0,1,5.0); //slide
-        //encoderDrive(DRIVE_SPEED,1,1,0,5.0); // separarse lander
-        //encoderDrive(TURN_SPEED,1,-1,0,5.0); // girar derecha
-        //encoderDrive(DRIVE_SPEED,18,18,0,5.0); //arrasar
-        //encoderDrive(TURN_SPEED,-1,1,0,5.0);   //apuntar
-        //robot.recogedor.setPower(1);
-        //sleep(1000);        // disparar
-        //robot.recogedor.setPower(0);
-        //encoderDrive(DRIVE_SPEED,-5,-5,0,5.0); //pa tras
-        //encoderDrive(TURN_SPEED,10,-10,0,5.0); //girars deresha
-        //encoderDrive(DRIVE_SPEED,20,20,0,5.0); //puro pa delante compa
+        robot.lift.setPower(-0.8);
+        sleep(2400);
+        robot.lift.setPower(0);
+        sleep(1000);
+        encoderDrive(DRIVE_SPEED,2.5,-2.5,-2.5,2.5,5.0);// slide
+        encoderDrive(DRIVE_SPEED,0.5,0.5,0.5,0.5,2.0); // pegarse lander
+        encoderDrive(TURN_SPEED,-7,1,-7,1,5.0); // girar izquierda
+        encoderDrive(DRIVE_SPEED,-19,-19,-19,-19,5.0);//arrasar
+        encoderDrive(DRIVE_SPEED,6.5,-10,6.5,-10,5.0);//girar
+        encoderDrive(0.8,-4.7,4.7,4.7,-4.7,5.0);// slide
+        encoderDrive(1,-6,-6,-6,-6,5.0); //puro pa delante, fierro pariente
+        robot.intake.setPower(-1);
+        sleep(1000);      //disparar
+        robot.intake.setPower(0);
+        encoderDrive(1,100,100,100,100,5.0); //puro pa delante, fierro pariente
 
 
 
