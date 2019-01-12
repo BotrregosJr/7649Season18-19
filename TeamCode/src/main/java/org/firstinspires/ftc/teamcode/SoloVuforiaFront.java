@@ -63,9 +63,9 @@ import java.util.Locale;
  * IMPORTANT: In order to use this OpMode, you need to obtain your own Vuforia license key as
  * is explained below.
  */
-@Autonomous(name = "SoloVuforia", group = "pushbot")
+@Autonomous(name = "SoloVuforiaFront", group = "pushbot")
 //@Disabled
-public class SoloVuforia extends LinearOpMode {
+public class SoloVuforiaFront extends LinearOpMode {
     HardwareOmni robot           = new HardwareOmni();
     private ElapsedTime runtime = new ElapsedTime();
 
@@ -273,7 +273,7 @@ public class SoloVuforia extends LinearOpMode {
         VuforiaLocalizer.Parameters parameters = new VuforiaLocalizer.Parameters();
 
         parameters.vuforiaLicenseKey = VUFORIA_KEY;
-        parameters.cameraDirection = CameraDirection.BACK;
+        parameters.cameraDirection = CameraDirection.FRONT;
 
         //  Instantiate the Vuforia engine
         vuforia = ClassFactory.getInstance().createVuforia(parameters);
