@@ -52,9 +52,9 @@ import java.util.List;
  * IMPORTANT: In order to use this OpMode, you need to obtain your own Vuforia license key as
  * is explained below.
  */
-@Autonomous(name = "Vuforia_Depot Crater", group = "Concept")
+@Autonomous(name = "ARRIBA Vuforia_Depot Crater", group = "Concept")
 //@Disabled
-public class VuforiaDepotCrater extends LinearOpMode {
+public class VuforiaDepotCraterARRIBA extends LinearOpMode {
     private static final String TFOD_MODEL_ASSET = "RoverRuckus.tflite";
     private static final String LABEL_GOLD_MINERAL = "Gold Mineral";
     private static final String LABEL_SILVER_MINERAL = "Silver Mineral";

@@ -52,9 +52,9 @@ import java.util.List;
  * IMPORTANT: In order to use this OpMode, you need to obtain your own Vuforia license key as
  * is explained below.
  */
-@Autonomous(name = "Vuforia_Depot SOLO", group = "Concept")
+@Autonomous(name = "ABAJO Vuforia_Depot Crater", group = "Concept")
 //@Disabled
-public class VuforiaDepotSolo extends LinearOpMode {
+public class VuforiaDepotCraterABAJO extends LinearOpMode {
     private static final String TFOD_MODEL_ASSET = "RoverRuckus.tflite";
     private static final String LABEL_GOLD_MINERAL = "Gold Mineral";
     private static final String LABEL_SILVER_MINERAL = "Silver Mineral";
@@ -127,13 +127,6 @@ public class VuforiaDepotSolo extends LinearOpMode {
         waitForStart();
 
 
-        robot.lift.setPower(-0.8);
-        sleep(2700);
-        robot.lift.setPower(0);
-        sleep(1000);
-        encoderDrive(DRIVE_SPEED,1.5,-1.5,-1.5,1.5,5.0);// slide
-
-
         if (opModeIsActive()) {
             /** Activate Tensor Flow Object Detection. */
             if (tfod != null) {
@@ -187,7 +180,7 @@ public class VuforiaDepotSolo extends LinearOpMode {
                               robot.intake.setPower(-1);
                               sleep(1000);      //disparar
                               robot.intake.setPower(0);
-                              encoderDrive(1,30,30,30,30,5.0); //puro pa delante, fierro pariente
+                              encoderDrive(1,100,100,100,100,5.0); //puro pa delante, fierro pariente
 
 
                           }
@@ -209,7 +202,7 @@ public class VuforiaDepotSolo extends LinearOpMode {
                                     robot.intake.setPower(0);
                                     encoderDrive(DRIVE_SPEED,5.75,-5.75,5.75,-5.75,5.0);//girar
                                     encoderDrive(0.8,-4.5,4.5,4.5,-4.5,5.0);// slide
-                                    encoderDrive(1,30,30,30,30,5.0); //puro pa delante, fierro pariente
+                                    encoderDrive(1,60,60,60,60,5.0); //puro pa delante, fierro pariente
                               } else {
                                 telemetry.addData("Gold Mineral Position", "Left");
                                     telemetry.update();
