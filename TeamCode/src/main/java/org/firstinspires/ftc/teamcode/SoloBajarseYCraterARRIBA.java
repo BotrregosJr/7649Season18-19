@@ -92,7 +92,7 @@ public class SoloBajarseYCraterARRIBA extends LinearOpMode {
         robot.backRightDrive.setPower(-0.5);
         robot.frontLeftDrive.setPower(-0.5);
         robot.backLeftDrive.setPower(-0.5);
-        sleep(1000);
+        sleep(3000);
         robot.frontRightDrive.setPower(0);
         robot.backRightDrive.setPower(0);
         robot.frontLeftDrive.setPower(0);
