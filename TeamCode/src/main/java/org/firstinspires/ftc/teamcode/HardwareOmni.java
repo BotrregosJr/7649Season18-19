@@ -29,8 +29,13 @@
 
 package org.firstinspires.ftc.teamcode;
 
+import android.app.Activity;
+import android.view.View;
+
 import com.qualcomm.robotcore.hardware.CRServo;
+import com.qualcomm.robotcore.hardware.ColorSensor;
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.DistanceSensor;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
@@ -63,6 +68,10 @@ public class HardwareOmni {
     public CRServo brazoR = null;
     public CRServo brazoL = null;
     public CRServo outtake = null;
+    ColorSensor color1;
+    DistanceSensor distance1;
+    ColorSensor color2;
+    DistanceSensor distance2;
 
 
     public double y1;
@@ -142,6 +151,24 @@ public class HardwareOmni {
         intake.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
 
+// get a reference to the color sensor.
+        color1 = hwMap.get(ColorSensor.class, "color1");
+
+        // get a reference to the distance sensor that shares the same name.
+        distance1 = hwMap.get(DistanceSensor.class, "color1");
+
+        color2 = hwMap.get(ColorSensor.class, "color2");
+
+        // get a reference to the distance sensor that shares the same name.
+        distance2 = hwMap.get(DistanceSensor.class, "color2");
+
+        // hsvValues is an array that will hold the hue, saturation, and value information.
+
+
+        // get a reference to the RelativeLayout so we can change the background
+        // color of the Robot Controller app to match the hue detected by the RGB sensor.
+        int relativeLayoutId = hwMap.appContext.getResources().getIdentifier("RelativeLayout", "id", hwMap.appContext.getPackageName());
+        final View relativeLayout = ((Activity) hwMap.appContext).findViewById(relativeLayoutId);
 
 
 
