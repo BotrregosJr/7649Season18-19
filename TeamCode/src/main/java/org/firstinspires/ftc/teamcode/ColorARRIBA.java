@@ -82,8 +82,6 @@ public class ColorARRIBA extends LinearOpMode {
     // to amplify/attentuate the measured values.
     final double SCALE_FACTOR = 255;
 
-    int relativeLayoutId = hardwareMap.appContext.getResources().getIdentifier("RelativeLayout", "id", hardwareMap.appContext.getPackageName());
-    final View relativeLayout = ((Activity) hardwareMap.appContext).findViewById(relativeLayoutId);
 
 
 
@@ -114,7 +112,7 @@ public class ColorARRIBA extends LinearOpMode {
         sleep(1000);
         encoderDrive(DRIVE_SPEED,3,-3,-3,3,5.0);// slide
         sleep(1000);
-        encoderDrive(DRIVE_SPEED,  -15,  -15, -15,-15,5.0); // arrasar
+        encoderDrive(DRIVE_SPEED,  -10,  -10, -10,-10,5.0); // arrasar
         sleep(1000
         );
         Color.RGBToHSV((int) (robot.color1.red() * SCALE_FACTOR),
@@ -157,52 +155,22 @@ public class ColorARRIBA extends LinearOpMode {
 
         if (robot.color1.blue()<100&&robot.color2.blue()>100){
             //gold izquierda
-            encoderDrive(DRIVE_SPEED,1,-1,-1,1,5.0);// slide
-            encoderDrive(DRIVE_SPEED,0.5,0.5,0.5,0.5,2.0); // pegarse lander
-            encoderDrive(TURN_SPEED,1,-4,1,-4,5.0); // girar izquierda
-            encoderDrive(DRIVE_SPEED,-18,-18,-18,-18,5.0);//arrasar
-            encoderDrive(DRIVE_SPEED,-7.2,7.2,-7.2,7.2,5.0);//girar
-            encoderDrive(0.8,5.3,-5.3,-5.3,5.3,2.0);// slide
-            encoderDrive(1,-10,-10,-10,-10,5.0); //puro pa delante, fierro pariente
-            robot.intake.setPower(-1);
-            sleep(1000);      //disparar
-            robot.intake.setPower(0);
-            encoderDrive(1,10,10,10,10,5.0); //puro pa delante, fierro pariente
+           telemetry.addData("Izq", "Izq");
+            sleep(3000);
 
 
         } else if (robot.color1.blue()>100&&robot.color2.blue()>100){
             //gold derecha
-            encoderDrive(DRIVE_SPEED,1,-1,-1,1,5.0);// slide
-            encoderDrive(DRIVE_SPEED,0.5,0.5,0.5,0.5,2.0); // pegarse lander
-            encoderDrive(TURN_SPEED,-7,1,-7,1,5.0); // girar izquierda
-            encoderDrive(DRIVE_SPEED,-19,-19,-19,-19,5.0);//arrasar
-            encoderDrive(DRIVE_SPEED,6.5,-10,6.5,-10,5.0);//girar
-            encoderDrive(0.8,-4.7,4.7,4.7,-4.7,5.0);// slide
-            encoderDrive(1,-6,-6,-6,-6,5.0); //puro pa delante, fierro pariente
-            robot.intake.setPower(-1);
-            sleep(1000);      //disparar
-            robot.intake.setPower(0);
-            encoderDrive(1,100,100,100,100,5.0); //puro pa delante, fierro pariente
+            telemetry.addData("Der", "Der");
+            sleep(3000);
+
 
         } else {
             //gold centro
-            encoderDrive(DRIVE_SPEED,-1,1,-1,1,5.0);//girar
-            encoderDrive(DRIVE_SPEED,  -27.5,  -27.5, -27.5,-27.5,5.0); // arrasar
-            robot.intake.setPower(-1);
-            sleep(1000);      //disparar
-            robot.intake.setPower(0);
-            encoderDrive(DRIVE_SPEED,5.75,-5.75,5.75,-5.75,5.0);//girar
-            encoderDrive(0.8,-4.5,4.5,4.5,-4.5,5.0);// slide
-            encoderDrive(1,60,60,60,60,5.0); //puro pa delante, fierro pariente
+            telemetry.addData("Cent", "Cent");
+            sleep(3000);
+
         }
-
-
-        robot.intake.setPower(-1);
-        sleep(1000);      //disparar
-        robot.intake.setPower(0);
-        encoderDrive(DRIVE_SPEED,5.75,-5.75,5.75,-5.75,5.0);//girar
-        encoderDrive(0.8,-4.5,4.5,4.5,-4.5,5.0);// slide
-        encoderDrive(1,60,60,60,60,5.0); //puro pa delante, fierro pariente
 
 
         telemetry.addData("Path", "Complete");
