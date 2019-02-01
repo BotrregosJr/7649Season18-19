@@ -30,9 +30,7 @@
 package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
-import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
-import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
@@ -55,7 +53,7 @@ import java.util.List;
  * is explained below.
  */
 @Autonomous(name = "Vuforia_Depot", group = "Concept")
-@Disabled
+//@Disabled
 public class Solo2 extends LinearOpMode {
     private static final String TFOD_MODEL_ASSET = "RoverRuckus.tflite";
     private static final String LABEL_GOLD_MINERAL = "Gold Mineral";
@@ -129,11 +127,11 @@ public class Solo2 extends LinearOpMode {
         waitForStart();
 
 
-        robot.lift.setPower(-0.8);
-        sleep(2400);
-        robot.lift.setPower(0);
-        sleep(1000);
-        encoderDrive(DRIVE_SPEED,1.5,-1.5,-1.5,1.5,5.0);// slide
+        // robot.lift.setPower(-0.8);
+        //sleep(2400);
+        //robot.lift.setPower(0);
+        //sleep(1000);
+        //encoderDrive(DRIVE_SPEED,1.5,-1.5,-1.5,1.5,5.0);// slide
 
 
         if (opModeIsActive()) {
@@ -175,11 +173,12 @@ public class Solo2 extends LinearOpMode {
                           if (goldMineralX == -1 && silverMineral1X != -1 && silverMineral2X != -1) {
                             telemetry.addData("Gold Mineral Position", "Right");
                               telemetry.update();
-                             // robot.lift.setPower(-0.8);
-                             // sleep(2400);
-                             // robot.lift.setPower(0);
+
+                              robot.lift.setPower(-0.8);
+                              sleep(2400);
+                              robot.lift.setPower(0);
                               sleep(1000);
-                              encoderDrive(DRIVE_SPEED,1,-1,-1,1,5.0);// slide
+                              encoderDrive(DRIVE_SPEED,2.5,-2.5,-2.5,2.5,5.0);// slide
                               encoderDrive(DRIVE_SPEED,0.5,0.5,0.5,0.5,2.0); // pegarse lander
                               encoderDrive(TURN_SPEED,-7,1,-7,1,5.0); // girar izquierda
                               encoderDrive(DRIVE_SPEED,-19,-19,-19,-19,5.0);//arrasar
@@ -192,44 +191,52 @@ public class Solo2 extends LinearOpMode {
                               encoderDrive(1,100,100,100,100,5.0); //puro pa delante, fierro pariente
 
 
+
+
+
                           }
                           else if (goldMineralX != -1 && silverMineral1X != -1) {
                                 if (goldMineralX > silverMineral1X) {
                                 telemetry.addData("Gold Mineral Position", "Center");
                                     telemetry.update();
-                                   // sleep(1500);
+
+                                    // sleep(1500);
                                     //robot.lift.setPower(-0.8);
-                                   // sleep(2400);
+                                    //sleep(2750);
                                     //robot.lift.setPower(0);
-                                    sleep(1000);
-                                    encoderDrive(DRIVE_SPEED,1,-1,-1,1,5.0);// slide
-                                    encoderDrive(DRIVE_SPEED,0.5,0.5,0.5,0.5,2.0); // pegarse lander
-                                    encoderDrive(DRIVE_SPEED,-1,1,-1,1,5.0);//girar
-                                    encoderDrive(DRIVE_SPEED,  -27.5,  -27.5, -27.5,-27.5,5.0); // arrasar
-                                    robot.intake.setPower(-1);
-                                    sleep(1000);      //disparar
-                                    robot.intake.setPower(0);
-                                    encoderDrive(DRIVE_SPEED,5.75,-5.75,5.75,-5.75,5.0);//girar
-                                    encoderDrive(0.8,-4.5,4.5,4.5,-4.5,5.0);// slide
-                                    encoderDrive(1,60,60,60,60,5.0); //puro pa delante, fierro pariente
-                              } else {
+                                    //sleep(1000);
+                                    //encoderDrive(DRIVE_SPEED,2.5,-2.5,-2.5,2.5,5.0);// slide
+                                    //encoderDrive(DRIVE_SPEED,0.5,0.5,0.5,0.5,2.0); // pegarse lander
+                                    //encoderDrive(DRIVE_SPEED,-1,1,-1,1,5.0);//girar
+                                    //encoderDrive(DRIVE_SPEED,  -27.5,  -27.5, -27.5,-27.5,5.0); // arrasar
+                                    // robot.intake.setPower(-1);
+                                    // sleep(1000);      //disparar
+                                    //robot.intake.setPower(0);
+                                    //encoderDrive(DRIVE_SPEED,5.75,-5.75,5.75,-5.75,5.0);//girar
+                                    //encoderDrive(0.8,-4.5,4.5,4.5,-4.5,5.0);// slide
+                                    //encoderDrive(1,60,60,60,60,5.0); //puro pa delante, fierro pariente
+
+
+                                } else {
                                 telemetry.addData("Gold Mineral Position", "Left");
                                     telemetry.update();
-                                   // robot.lift.setPower(-0.8);
+
+                                    //izquierda
+                                    //robot.lift.setPower(-0.8);
                                     //sleep(2400);
                                     //robot.lift.setPower(0);
-                                   sleep(1000);
-                                  encoderDrive(DRIVE_SPEED,1,-1,-1,1,5.0);// slide
-                                    encoderDrive(DRIVE_SPEED,0.5,0.5,0.5,0.5,2.0); // pegarse lander
-                                    encoderDrive(TURN_SPEED,1,-4,1,-4,5.0); // girar izquierda
-                                   encoderDrive(DRIVE_SPEED,-18,-18,-18,-18,5.0);//arrasar
-                                   encoderDrive(DRIVE_SPEED,-7.2,7.2,-7.2,7.2,5.0);//girar
-                                   encoderDrive(0.8,5.3,-5.3,-5.3,5.3,2.0);// slide
-                                   encoderDrive(1,-10,-10,-10,-10,5.0); //puro pa delante, fierro pariente
-                                   robot.intake.setPower(-1);
-                                   sleep(1000);      //disparar
-                                   robot.intake.setPower(0);
-                                   encoderDrive(1,10,10,10,10,5.0); //puro pa delante, fierro pariente
+                                    //sleep(1000);
+                                    //encoderDrive(DRIVE_SPEED,2.5,-2.5,-2.5,2.5,5.0);// slide
+                                    //encoderDrive(DRIVE_SPEED,0.5,0.5,0.5,0.5,2.0); // pegarse lander
+                                    //encoderDrive(TURN_SPEED,1,-4,1,-4,5.0); // girar izquierda
+                                    //encoderDrive(DRIVE_SPEED,-18,-18,-18,-18,5.0);//arrasar
+                                    //encoderDrive(DRIVE_SPEED,-7.2,7.2,-7.2,7.2,5.0);//girar
+                                    //encoderDrive(0.8,5.3,-5.3,-5.3,5.3,2.0);// slide
+                                    //encoderDrive(1,-10,-10,-10,-10,5.0); //puro pa delante, fierro pariente
+                                    //robot.intake.setPower(-1);
+                                    //sleep(1000);      //disparar
+                                    //robot.intake.setPower(0);
+                                    //encoderDrive(1,10,10,10,10,5.0); //puro pa delante, fierro pariente
 
                                 }
                         }
@@ -257,7 +264,7 @@ public class Solo2 extends LinearOpMode {
         VuforiaLocalizer.Parameters parameters = new VuforiaLocalizer.Parameters();
 
         parameters.vuforiaLicenseKey = VUFORIA_KEY;
-        parameters.cameraDirection = CameraDirection.FRONT;
+        parameters.cameraDirection = CameraDirection.BACK;
 
         //  Instantiate the Vuforia engine
         vuforia = ClassFactory.getInstance().createVuforia(parameters);
