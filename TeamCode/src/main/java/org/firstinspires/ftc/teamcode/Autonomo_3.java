@@ -52,15 +52,19 @@ import java.util.List;
  * IMPORTANT: In order to use this OpMode, you need to obtain your own Vuforia license key as
  * is explained below.
  */
-@Autonomous(name = "RANA´s Time", group = "Concept")
+@Autonomous(name = "3", group = "Concept")
 //@Disabled
-public class Solo2 extends LinearOpMode {
+public class Autonomo_3 extends LinearOpMode {
     private static final String TFOD_MODEL_ASSET = "RoverRuckus.tflite";
     private static final String LABEL_GOLD_MINERAL = "Gold Mineral";
     private static final String LABEL_SILVER_MINERAL = "Silver Mineral";
     HardwareOmni robot   = new HardwareOmni();   // Use a Pushbot's hardware
     private ElapsedTime runtime = new ElapsedTime();
 
+    /**
+    Este autonomo es para bajar con vuforia en el crater
+     estacionandose
+     */
 
 
     static final double     COUNTS_PER_MOTOR_REV    = 1120 ;    // neverest 40:1
@@ -174,17 +178,17 @@ public class Solo2 extends LinearOpMode {
                             telemetry.addData("Gold Mineral Position", "Left");
                               telemetry.update();
 
-                              encoderDrive(DRIVE_SPEED,2.5,-2.5,-2.5,2.5,2.0);// slide
+                              encoderDrive(DRIVE_SPEED,2.5,-2.5,-2.5,2.5,5.0);// slide
                               encoderDrive(DRIVE_SPEED,0.5,0.5,0.5,0.5,2.0); // pegarse lander
-                              encoderDrive(TURN_SPEED,1,-4,1,-4,3.0); // girar izquierda
-                              encoderDrive(DRIVE_SPEED,-18,-18,-18,-18,3.0);//arrasar
-                              encoderDrive(DRIVE_SPEED,-7.2,7.2,-7.2,7.2,2.0);//girar
+                              encoderDrive(TURN_SPEED,1,-4,1,-4,5.0); // girar izquierda
+                              encoderDrive(DRIVE_SPEED,-18,-18,-18,-18,5.0);//arrasar
+                              encoderDrive(DRIVE_SPEED,-7.2,7.2,-7.2,7.2,5.0);//girar
                               encoderDrive(0.8,5.3,-5.3,-5.3,5.3,2.0);// slide
-                              encoderDrive(1,-10,-10,-10,-10,3.0); //puro pa delante, fierro pariente
+                              encoderDrive(1,-10,-10,-10,-10,5.0); //puro pa delante, fierro pariente
                               robot.intake.setPower(-1);
                               sleep(1000);      //disparar
                               robot.intake.setPower(0);
-                              encoderDrive(1,200,200,200,200,5.0); //puro pa delante, fierro pariente
+                              encoderDrive(1,10,10,10,10,5.0); //puro pa delante, fierro pariente
 
                               //robot.lift.setPower(-0.8);
                               //sleep(2400);
@@ -215,15 +219,15 @@ public class Solo2 extends LinearOpMode {
 
                                     encoderDrive(DRIVE_SPEED,2.5,-2.5,-2.5,2.5,1.5);// slide
                                     encoderDrive(DRIVE_SPEED,0.8,0.8,0.8,0.8,3.0); // pegarse
-                                    encoderDrive(TURN_SPEED,-5,3,-5,3,3.0); // girar izquierda
-                                    encoderDrive(DRIVE_SPEED,-19,-19,-19,-19,3.0);//arrasar
-                                    encoderDrive(DRIVE_SPEED,6.5,-10,6.5,-10,2.0);//girar
-                                     encoderDrive(0.8,-10,10,10,-10,2.0);// slide
-                                     encoderDrive(1,-10,-10,-10,-10,2.0); //puro pa delante, fierro pariente
-                                     robot.intake.setPower(-1);
-                                     sleep(1000);      //disparar
-                                     robot.intake.setPower(0);
-                                    encoderDrive(1,100,100,100,100,5.0); //puro pa delante, fierro pariente
+                                    encoderDrive(TURN_SPEED,-5,2.5,-5,2.5,5.0); // girar izquierda
+                                    encoderDrive(DRIVE_SPEED,-19,-19,-19,-19,5.0);//arrasar
+                                    encoderDrive(DRIVE_SPEED,6.5,-10,6.5,-10,5.0);//girar
+                                     encoderDrive(0.8,-10,10,10,-10,5.0);// slide
+                                     encoderDrive(1,-8,-8,-8,-8,5.0); //puro pa delante, fierro pariente
+                                     //robot.intake.setPower(-1);
+                                    // sleep(1000);      //disparar
+                                     //robot.intake.setPower(0);
+                                    //encoderDrive(1,100,100,100,100,5.0); //puro pa delante, fierro pariente
 
 
                                     // sleep(1500);
@@ -247,17 +251,21 @@ public class Solo2 extends LinearOpMode {
                                 telemetry.addData("Gold Mineral Position", "center");
                                     telemetry.update();
 
-
-                                    encoderDrive(DRIVE_SPEED,2.5,-2.5,-2.5,2.5,2.0);// slide
+                                     //sleep(1500);
+                                    //robot.lift.setPower(-0.8);
+                                    //sleep(2750);
+                                    //robot.lift.setPower(0);
+                                    //sleep(1000);
+                                    encoderDrive(DRIVE_SPEED,2.5,-2.5,-2.5,2.5,5.0);// slide
                                     encoderDrive(DRIVE_SPEED,0.5,0.5,0.5,0.5,2.0); // pegarse lander
                                     encoderDrive(DRIVE_SPEED,-1,1,-1,1,5.0);//girar
                                     encoderDrive(DRIVE_SPEED,  -27.5,  -27.5, -27.5,-27.5,5.0); // arrasar
-                                    robot.intake.setPower(-1);
-                                     sleep(1000);      //disparar
-                                    robot.intake.setPower(0);
-                                    encoderDrive(DRIVE_SPEED,5.75,-5.75,5.75,-5.75,5.0);//girar
-                                    encoderDrive(0.8,-5,5,5,-5,5.0);// slide
-                                    encoderDrive(1,60,60,60,60,5.0); //puro pa delante, fierro pariente
+                                    //robot.intake.setPower(-1);
+                                     //sleep(1000);      //disparar
+                                    //robot.intake.setPower(0);
+                                    //encoderDrive(DRIVE_SPEED,5.75,-5.75,5.75,-5.75,5.0);//girar
+                                   // encoderDrive(0.8,-4.5,4.5,4.5,-4.5,5.0);// slide
+                                   // encoderDrive(1,60,60,60,60,5.0); //puro pa delante, fierro pariente
                                     //robot.lift.setPower(-0.8);
                                     //sleep(2400);
                                     //robot.lift.setPower(0);

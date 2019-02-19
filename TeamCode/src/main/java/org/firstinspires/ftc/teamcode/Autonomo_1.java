@@ -54,9 +54,13 @@ import com.qualcomm.robotcore.util.ElapsedTime;
  * Remove or comment out the @Disabled line to add this opmode to the Driver Station OpMode list
  */
 
-@Autonomous(name="ARRIBA Solo Bajarse", group="Pushbot")
+@Autonomous(name="1(solo bajarse)", group="Pushbot")
 //@Disabled
-public class SoloBajarseARRIBA extends LinearOpMode {
+public class Autonomo_1 extends LinearOpMode {
+
+    /**
+     * Solo bajarse
+     */
 
     /* Declare OpMode members. */
     HardwareOmni         robot   = new HardwareOmni();   // Use a Pushbot's hardware

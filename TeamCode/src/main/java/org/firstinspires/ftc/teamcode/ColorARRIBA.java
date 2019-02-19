@@ -34,6 +34,7 @@ import android.graphics.Color;
 import android.view.View;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.util.ElapsedTime;
@@ -64,7 +65,7 @@ import java.util.Locale;
  */
 
 @Autonomous(name="ARRIBA Color", group="Pushbot")
-//@Disabled
+@Disabled
 public class ColorARRIBA extends LinearOpMode {
     static final double     COUNTS_PER_MOTOR_REV    = 1120 ;    // neverest 40:1
     static final double     DRIVE_GEAR_REDUCTION    = 2.0 ;     // This is < 1.0 if geared UP
